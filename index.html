@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0A0F" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Brinwavscar Imports</title>
+
+    <!--
+      Theme initialisation — runs before first paint to avoid a flash.
+      Mirrors the logic in ThemeContext.tsx → applyTheme().
+
+      Rules:
+        'light' → add .light-theme   (explicit CSS variables)
+        'dark'  → add .dark-theme    (explicit CSS variables)
+        'os'    → no class           (CSS @media prefers-color-scheme takes over)
+        default → 'light'
+    -->
+    <script>
+      (function () {
+        var theme = localStorage.getItem('theme') || 'light';
+        var html  = document.documentElement;
+
+        if (theme === 'os') {
+          html.classList.remove('light-theme', 'dark-theme');
+        } else if (theme === 'light') {
+          html.classList.remove('dark-theme');
+          html.classList.add('light-theme');
+        } else {
+          html.classList.remove('light-theme');
+          html.classList.add('dark-theme');
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CX1BgEb8.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-QwuTsW8I.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
